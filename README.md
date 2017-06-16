@@ -1,77 +1,36 @@
-homebrew-ethereum
-=================
+homebrew-ubiq
+=============
 
-Homebrew Tap for Ethereum
+Homebrew Tap for Ubiq (forked from original [homebrew-ethereum](https://github.com/ethereum/homebrew-ethereum) repository)
 
 ## Installation
 
 ```
-brew tap ethereum/ethereum
+brew tap ubiq/ubiq
 ```
 
 ### Go client
 ```
-brew install ethereum
+brew install ubiq
 ```
-
-### C++ client
-```
-brew install cpp-ethereum
-brew linkapps cpp-ethereum
-```
-
 ## Running
 
 ### Go client
-`geth`
-
-### C++ client
-`eth`
-
+`gubiq`
 
 ## Development
-Get the latest development version with the `--devel` flag. Use `--build-from-source` if you don't want a pre-built bottle. Alternatively you can use the `--successful` flag (cpp-ethereum only, see [important note below](#important-note-when-using---successful)) or any other [available options](#options).
-
-### C++ client
-```
-brew reinstall cpp-ethereum --devel
-```
-
-For the latest successful build on develop (last successful build from [cpt-obvious](https://build.ethdev.com/waterfall)):
-```
-brew reinstall cpp-ethereum --devel --successful
-```
-
-#### Important note when using --successful
-
-If you get an error looking like this:
-```
-==> Cloning https://github.com/ethereum/cpp-ethereum.git
-Updating /Library/Caches/Homebrew/ethereum--git
-fatal: reference is not a tree: <latest commit hash>
-Error: Failed to download resource "ethereum"
-Failure while executing: git checkout -q -f
-```
-
-Either try `brew fetch cpp-ethereum --devel` or simply delete the cache with `rm -rf /Library/Caches/Homebrew/cpp-ethereum--git`
-
+Get the latest development version with the `--devel` flag. Use `--build-from-source` if you don't want a pre-built bottle.
 
 ### Go client
 ```
-brew reinstall ethereum --devel
+brew reinstall ubiq --devel
 ```
-
 
 ### Current branches
 
 Go:
 * `--devel` is on develop branch
 * normal install is on master branch
-
-C++:
-* `--devel` is on [develop](https://github.com/ethereum/cpp-ethereum/commits/develop)
-* normal install is on master branch
-
 
 ## Upgrading
 
@@ -86,22 +45,15 @@ brew update && brew upgrade
 brew update && brew reinstall ethereum
 ```
 
-### C++ client
-```
-brew update && brew reinstall cpp-ethereum
-```
-
-
 ## Versions
 List available versions with:
 ```
-ls -l /usr/local/Cellar/ethereum
-ls -l /usr/local/Cellar/cpp-ethereum
+ls -l /usr/local/Cellar/ubiq
 ```
 
 If you have other versions installed, you can switch with:
 ```
-brew switch ethereum <version>
+brew switch ubiq <version>
 ```
 Or follow this [StackOverflow answer](http://stackoverflow.com/a/9832084/2639784)
 
@@ -113,18 +65,7 @@ for previous builds.
 
 ##Options
 
-See `brew info ethereum` or `brew info cpp-ethereum` for all options. `--with-...` features are experimental patches.
-
-#### cpp-ethereum options
-Option                 | desc.
------------------------|---------
-`--with-evmjit`        | Build with LLVM and enable EVMJIT
-`--successful`         | Last successful build using --devel only
-`--with-debug`         | Pass -DCMAKE_BUILD_TYPE=Debug
-`--with-vmtrace`       | Build with -DVMTRACE=1
-`--with-paranoia`      | Build with -DPARANOID=1
-
-**Note:** `--with-evmjit` requires LLVM to be installed with `brew install llvm --HEAD --with-clang`
+See `brew info ubiq` for all options. `--with-...` features are experimental patches.
 
 ##Troubleshooting
 
@@ -133,14 +74,14 @@ Option                 | desc.
 * Run `brew update` and `brew upgrade`
 * Fix what the `brew doctor` says.
 * Reinstall dependencies: `brew reinstall boost --c++11 --with-python`
-* Make changes to `/usr/local/Library/Taps/ethereum/homebrew-ethereum/ethereum.rb`
-* Reinstall with `brew reinstall ethereum.rb` (send a pull request!)
+* Make changes to `/usr/local/Library/Taps/ubiq/ubiq/ubiq.rb`
+* Reinstall with `brew reinstall ubiq.rb` (send a pull request!)
 * Take a walk
 
 
 ##Patching
 
-First `cd /Library/Caches/Homebrew/ethereum--git/` and make your changes. Then `git diff > shiny.patch`, copy/paste the content of your patch under `__END__` of `ethereum.rb` and replace the `def patches` block with:
+First `cd /Library/Caches/Homebrew/ubiq--git/` and make your changes. Then `git diff > shiny.patch`, copy/paste the content of your patch under `__END__` of `ubiq.rb` and replace the `def patches` block with:
 
 ```
 def patches
