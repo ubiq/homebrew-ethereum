@@ -19,8 +19,8 @@ class Solidity < Formula
 
   desc "The Solidity Contract-Oriented Programming Language"
   homepage "http://solidity.readthedocs.org"
-  url "https://github.com/ethereum/solidity/releases/download/v0.4.13/solidity_0.4.13.tar.gz"
-  version "0.4.13"
+  url "https://github.com/ethereum/solidity/releases/download/v0.4.17/solidity_0.4.17.tar.gz"
+  version "0.4.17"
   sha256 "09a987a973ab8f614a836039c022125531475392bee510c4ca394deaea35f82a"
 
   depends_on "cmake" => :build
